@@ -2,7 +2,6 @@ package org.example;
 
 public class Task {
     private String task;
-    private Priority priority;
 
     /**
      * @return return String task
@@ -11,24 +10,44 @@ public class Task {
         return task;
     }
 
-    /**
-     * @return int priority
-     */
-    public Priority getPriority() {return this.priority; }
 
     /**
-     * @param priority Set task priority
      * @param task Set task
      */
-    Task(int priority, String task) {
+    Task(String task) {
         this.task = task;
-        priorityCheck(priority);
     }
 
     /**
      *
      * @param priority Set task priority in field
      */
+}
+
+class DateTasks extends Task {
+    private String date;
+
+    DateTasks(String task, String date) {
+        super(task);
+        this.date = date;
+    }
+
+
+    public String getDate() {
+        return date;
+    }
+}
+
+class PriorityTask extends Task {
+    private Priority priority;
+
+    PriorityTask(String task, int priority) {
+        super(task);
+        priorityCheck(priority);
+    }
+
+    public Priority getPriority() {return this.priority; }
+
     public void priorityCheck(int priority) {
         switch (priority) {
             case 1: this.priority = Priority.HIGH; break;
@@ -36,20 +55,6 @@ public class Task {
             case 3: this.priority = Priority.LOW; break;
             default: this.priority = Priority.HAVENT; break;
         }
-    }
-
-}
-
-class DateTasks extends Task {
-    private String date;
-
-    DateTasks(int priority, String task, String date) {
-        super(priority, task);
-        this.date = date;
-    }
-
-    public String getDate() {
-        return date;
     }
 }
 

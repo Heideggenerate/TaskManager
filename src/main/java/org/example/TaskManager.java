@@ -12,11 +12,13 @@ public class TaskManager {
         return tasks;
     }
 
-    public void addTask(int priority, String task) {
-        tasks.add(new Task(priority, task));
+    public void addTask(String task) {
+        tasks.add(new Task(task));
     }
 
-    public void addTask(int priority, String task, String date) {tasks.add(new DateTasks(priority, task, date));}
+    public void addTask(String task, String date) {tasks.add(new DateTasks(task, date));}
+
+    public void addTask(String task, int priority) {tasks.add(new PriorityTask(task, priority));}
 
     public void deleteTask() {
         tasks.remove(input.enterIndex());
@@ -26,10 +28,14 @@ public class TaskManager {
         for (Task iterator : tasks) {
             if (iterator instanceof DateTasks) {
                 DateTasks dateTasks = (DateTasks) iterator;
-                output.printTasks(dateTasks.getTask(), dateTasks.getPriority(), dateTasks.getDate());
+                output.printTasks(dateTasks.getTask(), dateTasks.getDate());
+            }
+            else if (iterator instanceof PriorityTask) {
+                PriorityTask priorityTask = (PriorityTask) iterator;
+                output.printTasks(priorityTask.getTask(), priorityTask.getPriority());
             }
             else {
-                output.printTasks(iterator.getTask(), iterator.getPriority());
+                output.printTasks(iterator.getTask());
             }
         }
     }
@@ -39,9 +45,10 @@ public class TaskManager {
         while (true) {
             switch (input.enterMenu()) {
                 case 1:
-                    switch (input.enterDT()) {
-                        case 1: addTask(input.enterPriority(), input.enterTask()); break;
-                        case 2: addTask(input.enterPriority(), input.enterTask(), input.enterDate()); break;
+                    switch (input.enterTaskType()) {
+                        case 1: addTask(input.enterTask()); break;
+                        case 2: addTask(input.enterTask(), input.enterDate()); break;
+                        case 3: addTask(input.enterTask(), input.enterPriority()); break;
                         default: output.outputEnterError(); continue;
                     }
                     break;

@@ -10,13 +10,16 @@ public class UserOutput {
     }
 
     public void printTasks(String task, Priority priority) {
-        System.out.println("TASK: " + task + '[' + priority + ']');
+        System.out.println("TASK: " + task + " [" + priority + ']');
     }
 
-    public void printTasks(String task, Priority priority, String dated) {
-        System.out.println("TASK: " + task + '[' + priority + "] " + dated);
+    public void printTasks(String task, String dated) {
+        System.out.println("TASK: " + task + " " + dated);
     }
 
+    public void printTasks(String task) {
+        System.out.println("TASK: " + task);
+    }
 
     public void outputEnterTask() {
         System.out.println("Enter task");
@@ -42,7 +45,7 @@ public class UserOutput {
         System.out.println("Enter Date in format date/month/year");
     }
 
-    public void outputDT() {
-        System.out.println("1.Not Dated\n2.Dated");
+    public void outputTaskType() {
+        System.out.println("1.Base\n2.Date\n3.Priority");
     }
 }

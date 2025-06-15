@@ -37,6 +37,7 @@ public class UserInput {
             if (input <= 4 && input >= 1) break;
             else output.outputEnterError();
         }
+        outputEnters();
         return input;
     }
 
@@ -45,15 +46,21 @@ public class UserInput {
         return scan.nextLine();
     }
 
-    public int enterDT() {
+    public int enterTaskType() {
         int input;
         while (true) {
-            output.outputDT();
+            output.outputTaskType();
             input = scan.nextInt();
-            if (input <= 2 && input >= 1) break;
+            if (input <= 3 && input >= 1) break;
             else output.outputEnterError();
         }
+        scan.nextLine();
+        outputEnters();
         return input;
+    }
+
+    public void outputEnters() {
+        System.out.println("\n\n");
     }
 
 }
