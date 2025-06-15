@@ -51,7 +51,7 @@ public class UserInput {
         while (true) {
             output.outputTaskType();
             input = scan.nextInt();
-            if (input <= 3 && input >= 1) break;
+            if (input <= 5 && input >= 1) break;
             else output.outputEnterError();
         }
         scan.nextLine();

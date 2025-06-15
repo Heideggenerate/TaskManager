@@ -34,7 +34,7 @@ public class UserOutput {
     }
 
     public void outputMenu () {
-        System.out.println("\n\n\n===TASK MANAGER===\n1.Add task\n2.Remove task\n3.Output tasks\n4.Exit");
+        System.out.println("\n\n\n===TASK MANAGER===\n1.Add task\n2.Remove task\n3.Output tasks\n4.Alphabet Sorting\n5.Priority Sorting\n6.Date sorting\n7.Exit");
     }
 
     public void outputEnterError() {

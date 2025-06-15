@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class TaskManager {
     private ArrayList<Task> tasks = new ArrayList<Task>();
 
+    private Sorting sort = Sorting.getObjectSorting();
     private UserInput input = UserInput.getInputObject();
     private UserOutput output = UserOutput.getOutputObject();
 
@@ -58,8 +59,9 @@ public class TaskManager {
                 case 3:
                     printTasks();
                     break;
-                case 4:
-                    return;
+                case 4: sort.alphabetSorting(tasks); break;
+                case 6: 
+                case 7: return;
                 default: output.outputEnterError(); break;
             }
         }
