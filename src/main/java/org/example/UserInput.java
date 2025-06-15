@@ -1,9 +1,14 @@
 package org.example;
 
-
 import java.util.Scanner;
 public class UserInput {
-    private UserOutput output = new UserOutput();
+
+    private UserOutput output = UserOutput.getOutputObject();
+    private static UserInput input = new UserInput();
+
+    public static UserInput getInputObject() {
+        return input;
+    }
 
     Scanner scan = new Scanner(System.in);
 
@@ -30,6 +35,22 @@ public class UserInput {
             output.outputMenu();
             input = scan.nextInt();
             if (input <= 4 && input >= 1) break;
+            else output.outputEnterError();
+        }
+        return input;
+    }
+
+    public String enterDate() {
+        output.outputDate();
+        return scan.nextLine();
+    }
+
+    public int enterDT() {
+        int input;
+        while (true) {
+            output.outputDT();
+            input = scan.nextInt();
+            if (input <= 2 && input >= 1) break;
             else output.outputEnterError();
         }
         return input;

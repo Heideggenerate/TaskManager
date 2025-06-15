@@ -5,11 +5,15 @@ public class Task {
     private Priority priority;
 
     /**
-     * @return return Object task
+     * @return return String task
      */
     public String getTask() {
         return task;
     }
+
+    /**
+     * @return int priority
+     */
     public Priority getPriority() {return this.priority; }
 
     /**
@@ -34,6 +38,19 @@ public class Task {
         }
     }
 
+}
+
+class DateTasks extends Task {
+    private String date;
+
+    DateTasks(int priority, String task, String date) {
+        super(priority, task);
+        this.date = date;
+    }
+
+    public String getDate() {
+        return date;
+    }
 }
 
 enum Priority {
